@@ -1,0 +1,77 @@
+workspace(name = "ecsact_lang_json")
+
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+_NLOHMANN_JSON_BUILD_FILE = """
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+cc_library(
+    name = "json",
+    visibility = ["//visibility:public"],
+    includes = ["include"],
+    hdrs = glob(["include/**/*.hpp"]),
+    strip_include_prefix = "include",
+)
+"""
+
+http_archive(
+    name = "nlohmann_json",
+    build_file_content = _NLOHMANN_JSON_BUILD_FILE,
+    sha256 = "e5c7a9f49a16814be27e4ed0ee900ecd0092bfb7dbfca65b5a421b774dccaaed",
+    url = "https://github.com/nlohmann/json/releases/download/v3.11.2/include.zip",
+)
+
+http_archive(
+    name = "ecsact_runtime",
+    sha256 = "58260dd037bb110610d9e77bcd5db854fa84839f6acc685d7831ceaf34faacbe",
+    strip_prefix = "ecsact_runtime-1cf4fc34ab4738492d5bd66845c1620f0ca10b5a",
+    url = "https://github.com/ecsact-dev/ecsact_runtime/archive/1cf4fc34ab4738492d5bd66845c1620f0ca10b5a.zip",
+)
+
+http_archive(
+    name = "ecsact_parse",
+    sha256 = "e75458acc83327d3d7c677e79cb8f69521ecf4bde3ed30589788d4e039ae2a1f",
+    strip_prefix = "ecsact_parse-f90dc260554f4e6fca2894198273444d7e992a5b",
+    url = "https://github.com/ecsact-dev/ecsact_parse/archive/f90dc260554f4e6fca2894198273444d7e992a5b.zip",
+)
+
+http_archive(
+    name = "com_google_googletest",
+    sha256 = "7fda611bceb5a793824a3c63ecbf68d2389e70c38f5763e9b1d415ca24912f44",
+    strip_prefix = "googletest-1336c4b6d1a6f4bc6beebccb920e5ff858889292",
+    url = "https://github.com/google/googletest/archive/1336c4b6d1a6f4bc6beebccb920e5ff858889292.zip",
+)
+
+http_archive(
+    name = "hedron_compile_commands",
+    sha256 = "b0e084fa3fb7cf43d149debedfcc941c3e3607b2b79de272f5e61463c52860c3",
+    strip_prefix = "bazel-compile-commands-extractor-57046dba8d60f819887ea81933ed90f8e23a458a",
+    url = "https://github.com/hedronvision/bazel-compile-commands-extractor/archive/57046dba8d60f819887ea81933ed90f8e23a458a.tar.gz",
+)
+
+load("@hedron_compile_commands//:workspace_setup.bzl", "hedron_compile_commands_setup")
+
+hedron_compile_commands_setup()
+
+http_archive(
+    name = "com_grail_bazel_toolchain",
+    sha256 = "7fa5a8624b1148c36e09c7fa29ef6ee8b83f865219c9c219c9125aac78924758",
+    strip_prefix = "bazel-toolchain-c3131a6894804ee586d059c57ffe8e88d44172e1",
+    url = "https://github.com/grailbio/bazel-toolchain/archive/c3131a6894804ee586d059c57ffe8e88d44172e1.zip",
+)
+
+load("@com_grail_bazel_toolchain//toolchain:deps.bzl", "bazel_toolchain_dependencies")
+
+bazel_toolchain_dependencies()
+
+load("@com_grail_bazel_toolchain//toolchain:rules.bzl", "llvm_toolchain")
+
+llvm_toolchain(
+    name = "llvm_toolchain",
+    cxx_standard = {"linux": "c++20"},
+    llvm_version = "14.0.0",
+)
+
+load("@llvm_toolchain//:toolchains.bzl", "llvm_register_toolchains")
+
+llvm_register_toolchains()

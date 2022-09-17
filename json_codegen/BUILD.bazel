@@ -1,0 +1,20 @@
+load("//bazel:copts.bzl", "copts")
+load("@ecsact_runtime//:codegen_plugin.bzl", "cc_ecsact_codegen_plugin")
+
+package(default_visibility = ["//visibility:public"])
+
+cc_ecsact_codegen_plugin(
+    name = "ecsact_json_codegen",
+    srcs = ["json_codegen.cc"],
+    copts = copts,
+    deps = [
+        "@nlohmann_json//:json",
+    ],
+)
+
+filegroup(
+    name = "json_codegen",
+    srcs = [
+        ":ecsact_json_codegen",
+    ],
+)
