@@ -43,6 +43,24 @@ http_archive(
 )
 
 http_archive(
+    name = "magic_enum",
+    sha256 = "5e7680e877dd4cf68d9d0c0e3c2a683b432a9ba84fc1993c4da3de70db894c3c",
+    strip_prefix = "magic_enum-0.8.0",
+    urls = ["https://github.com/Neargye/magic_enum/archive/refs/tags/v0.8.0.tar.gz"],
+)
+
+http_archive(
+    name = "boost",
+    sha256 = "4a79c389add7e3d54d0e12c83098d471d24536ba2d6b8593d3a95f151f25eebb",
+    strip_prefix = "boost-da62319c330d81ef032517cbe13b6f35d97387cb",
+    urls = ["https://github.com/bazelboost/boost/archive/da62319c330d81ef032517cbe13b6f35d97387cb.zip"],
+)
+
+load("@boost//:index.bzl", "boost_http_archives")
+
+boost_http_archives()
+
+http_archive(
     name = "hedron_compile_commands",
     sha256 = "b0e084fa3fb7cf43d149debedfcc941c3e3607b2b79de272f5e61463c52860c3",
     strip_prefix = "bazel-compile-commands-extractor-57046dba8d60f819887ea81933ed90f8e23a458a",

@@ -8,6 +8,7 @@ cc_ecsact_codegen_plugin(
     srcs = ["json_codegen.cc"],
     copts = copts,
     deps = [
+        "@magic_enum",
         "@nlohmann_json//:json",
     ],
 )
