@@ -10,43 +10,41 @@
 
 namespace fs = std::filesystem;
 
-static void json_action_properties
-	( ecsact_action_id  action_id
-	, nlohmann::json&   out_json
-	);
+static void json_action_properties(
+	ecsact_action_id action_id,
+	nlohmann::json&  out_json
+);
 
-static void json_system_properties
-	( ecsact_system_id  sys_id
-	, nlohmann::json&   out_json
-	);
+static void json_system_properties(
+	ecsact_system_id sys_id,
+	nlohmann::json&  out_json
+);
 
-static void json_component_properties
-	( ecsact_component_id  comp_id
-	, nlohmann::json&      out_json
-	);
+static void json_component_properties(
+	ecsact_component_id comp_id,
+	nlohmann::json&     out_json
+);
 
-static void json_transient_properties
-	( ecsact_transient_id  trans_id
-	, nlohmann::json&      out_json
-	);
+static void json_transient_properties(
+	ecsact_transient_id trans_id,
+	nlohmann::json&     out_json
+);
 
 template<typename SystemLikeID>
-static void json_common_decl_properties
-	( SystemLikeID     id
-	, nlohmann::json&  out_json
-	)
-{
+static void json_common_decl_properties(
+	SystemLikeID    id,
+	nlohmann::json& out_json
+) {
 	auto decl_id = ecsact_id_cast<ecsact_decl_id>(id);
 	out_json["id"] = static_cast<int32_t>(decl_id);
 	out_json["full_name"] = ecsact::meta::decl_full_name(decl_id);
 }
 
 template<typename SystemLikeID>
-static void json_system_like_properties
-	( SystemLikeID     id
-	, nlohmann::json&  out_json
-	)
-{
+static void json_system_like_properties(
+	SystemLikeID    id,
+	nlohmann::json& out_json
+) {
 	auto sys_like_id = ecsact_id_cast<ecsact_system_like_id>(id);
 	for(auto& child_id : ecsact::meta::get_child_system_ids(sys_like_id)) {
 		auto child_json = "{}"_json;
@@ -56,11 +54,10 @@ static void json_system_like_properties
 }
 
 template<typename CompositeID>
-static void json_composite_properties
-	( CompositeID      id
-	, nlohmann::json&  out_json
-	)
-{
+static void json_composite_properties(
+	CompositeID     id,
+	nlohmann::json& out_json
+) {
 	auto compo_id = ecsact_id_cast<ecsact_composite_id>(id);
 	out_json["fields"] = "[]"_json;
 
@@ -73,15 +70,33 @@ static void json_composite_properties
 		field_type_json["length"] = field_type.length;
 		if(field_type.kind == ECSACT_TYPE_KIND_BUILTIN) {
 			switch(field_type.type.builtin) {
-				case ECSACT_BOOL: field_type_json["type"] = "bool"; break;
-				case ECSACT_I8: field_type_json["type"] = "i8"; break;
-				case ECSACT_U8: field_type_json["type"] = "u8"; break;
-				case ECSACT_I16: field_type_json["type"] = "i16"; break;
-				case ECSACT_U16: field_type_json["type"] = "u16"; break;
-				case ECSACT_I32: field_type_json["type"] = "i32"; break;
-				case ECSACT_U32: field_type_json["type"] = "u32"; break;
-				case ECSACT_F32: field_type_json["type"] = "f32"; break;
-				case ECSACT_ENTITY_TYPE: field_type_json["type"] = "entity"; break;
+				case ECSACT_BOOL:
+					field_type_json["type"] = "bool";
+					break;
+				case ECSACT_I8:
+					field_type_json["type"] = "i8";
+					break;
+				case ECSACT_U8:
+					field_type_json["type"] = "u8";
+					break;
+				case ECSACT_I16:
+					field_type_json["type"] = "i16";
+					break;
+				case ECSACT_U16:
+					field_type_json["type"] = "u16";
+					break;
+				case ECSACT_I32:
+					field_type_json["type"] = "i32";
+					break;
+				case ECSACT_U32:
+					field_type_json["type"] = "u32";
+					break;
+				case ECSACT_F32:
+					field_type_json["type"] = "f32";
+					break;
+				case ECSACT_ENTITY_TYPE:
+					field_type_json["type"] = "entity";
+					break;
 			}
 		} else if(field_type.kind == ECSACT_TYPE_KIND_ENUM) {
 			field_type_json["type"] = ecsact_meta_enum_name(field_type.type.enum_id);
@@ -94,42 +109,38 @@ static void json_composite_properties
 	}
 }
 
-static void json_action_properties
-	( ecsact_action_id  action_id
-	, nlohmann::json&   out_json
-	)
-{
+static void json_action_properties(
+	ecsact_action_id action_id,
+	nlohmann::json&  out_json
+) {
 	out_json["name"] = ecsact::meta::action_name(action_id);
 	json_common_decl_properties(action_id, out_json);
 	json_system_like_properties(action_id, out_json);
 	json_composite_properties(action_id, out_json);
 }
 
-static void json_system_properties
-	( ecsact_system_id  sys_id
-	, nlohmann::json&   out_json
-	)
-{
+static void json_system_properties(
+	ecsact_system_id sys_id,
+	nlohmann::json&  out_json
+) {
 	out_json["name"] = ecsact::meta::system_name(sys_id);
 	json_common_decl_properties(sys_id, out_json);
 	json_system_like_properties(sys_id, out_json);
 }
 
-static void json_component_properties
-	( ecsact_component_id  comp_id
-	, nlohmann::json&      out_json
-	)
-{
+static void json_component_properties(
+	ecsact_component_id comp_id,
+	nlohmann::json&     out_json
+) {
 	out_json["name"] = ecsact::meta::component_name(comp_id);
 	json_common_decl_properties(comp_id, out_json);
 	json_composite_properties(comp_id, out_json);
 }
 
-static void json_transient_properties
-	( ecsact_transient_id  trans_id
-	, nlohmann::json&      out_json
-	)
-{
+static void json_transient_properties(
+	ecsact_transient_id trans_id,
+	nlohmann::json&     out_json
+) {
 	out_json["name"] = ecsact::meta::transient_name(trans_id);
 	json_common_decl_properties(trans_id, out_json);
 	json_composite_properties(trans_id, out_json);
@@ -139,17 +150,16 @@ const char* ecsact_codegen_plugin_name() {
 	return "json";
 }
 
-void ecsact_codegen_plugin
-	( ecsact_package_id          package_id
-	, ecsact_codegen_write_fn_t  write_fn
-	)
-{
-	using ecsact::meta::package_name;
+void ecsact_codegen_plugin(
+	ecsact_package_id         package_id,
+	ecsact_codegen_write_fn_t write_fn
+) {
 	using ecsact::meta::get_action_ids;
-	using ecsact::meta::get_system_ids;
-	using ecsact::meta::get_dependencies;
 	using ecsact::meta::get_component_ids;
+	using ecsact::meta::get_dependencies;
+	using ecsact::meta::get_system_ids;
 	using ecsact::meta::get_transient_ids;
+	using ecsact::meta::package_name;
 
 	ecsact::codegen_plugin_context ctx{package_id, write_fn};
 	ctx.write("{\n");
@@ -178,7 +188,7 @@ void ecsact_codegen_plugin
 			json_action_properties(action_id, action);
 			actions.emplace_back(std::move(action));
 		}
-		
+
 		ctx.write("\t\"actions\": ", actions.dump(), ",\n");
 	}
 
@@ -189,7 +199,7 @@ void ecsact_codegen_plugin
 			json_system_properties(system_id, system);
 			systems.emplace_back(std::move(system));
 		}
-		
+
 		ctx.write("\t\"systems\": ", systems.dump(), ",\n");
 	}
 
@@ -200,7 +210,7 @@ void ecsact_codegen_plugin
 			json_component_properties(component_id, component);
 			components.emplace_back(std::move(component));
 		}
-		
+
 		ctx.write("\t\"components\": ", components.dump(), ",\n");
 	}
 
@@ -211,7 +221,7 @@ void ecsact_codegen_plugin
 			json_transient_properties(transient_id, transient);
 			transients.emplace_back(std::move(transient));
 		}
-		
+
 		ctx.write("\t\"transients\": ", transients.dump(), "\n");
 	}
 
