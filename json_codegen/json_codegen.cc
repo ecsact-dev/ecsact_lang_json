@@ -146,10 +146,6 @@ static void json_transient_properties(
 	json_composite_properties(trans_id, out_json);
 }
 
-const char* ecsact_codegen_plugin_name() {
-	return "json";
-}
-
 void ecsact_codegen_plugin(
 	ecsact_package_id         package_id,
 	ecsact_codegen_write_fn_t write_fn
