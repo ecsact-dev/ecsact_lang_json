@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## 0.1.3 - 2024-06-19
+#### Miscellaneous Chores
+- **(deps)** update hedron_compile_commands digest to 4d56714 (#118) - (2be1358) - renovate[bot]
+- **(deps)** update hedron_compile_commands digest to ceeb5db (#116) - (6783301) - renovate[bot]
+- **(deps)** update hedron_compile_commands digest to 3700f76 (#115) - (582c55b) - renovate[bot]
+- **(deps)** update hedron_compile_commands digest to f41ec09 (#114) - (6136785) - renovate[bot]
+- **(deps)** update hedron_compile_commands digest to 5f9f8ba (#113) - (0ce68e2) - renovate[bot]
+- **(deps)** update hedron_compile_commands digest to b998dca (#112) - (333b5ef) - renovate[bot]
+- **(deps)** update hedron_compile_commands digest to 388cc00 (#111) - (eddbc28) - renovate[bot]
+- **(deps)** update hedron_compile_commands digest to 46ffd1f (#110) - (b8ca7b8) - renovate[bot]
+- **(deps)** update hedron_compile_commands digest to 9d438af (#109) - (4c25906) - renovate[bot]
+- **(deps)** update hedron_compile_commands digest to eac41ee (#108) - (b8a2c62) - renovate[bot]
+- **(deps)** update hedron_compile_commands digest to af16787 (#107) - (90d989a) - renovate[bot]
+- **(deps)** update hedron_compile_commands digest to 3b1745c (#106) - (d9acd71) - renovate[bot]
+- **(deps)** update com_grail_bazel_toolchain digest to 214fc1c (#105) - (2afb517) - renovate[bot]
+- **(deps)** update hedron_compile_commands digest to eca42c6 (#102) - (ac9133e) - renovate[bot]
+- **(deps)** update com_grail_bazel_toolchain digest to ade23e0 (#101) - (701cdb7) - renovate[bot]
+- **(deps)** update com_grail_bazel_toolchain digest to 7500623 (#99) - (72cce16) - renovate[bot]
+- **(deps)** update com_grail_bazel_toolchain digest to 1e5f3c6 (#97) - (0d56d5a) - renovate[bot]
+- **(deps)** update hedron_compile_commands digest to ac6411f (#96) - (2228e88) - renovate[bot]
+- **(deps)** update com_grail_bazel_toolchain digest to 0a9feb7 (#95) - (7f07361) - renovate[bot]
+- update deps, ecsact libs and bazel (#121) - (1c32f77) - Austin Kelway
+- sync with ecsact_common (#85) - (d36a4e3) - seaubot
+
+- - -
+
 
 ## 0.1.2 - 2023-10-06
 
