@@ -1,17 +1,25 @@
 # Changelog
+
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+
 ## 0.1.2 - 2023-10-06
+
 #### Bug Fixes
+
 - add missing bazel_skylib dep - (7ab2b54) - Ezekiel Warren
 
 - - -
 
 ## 0.1.1 - 2023-10-06
+
 #### Features
+
 - bzlmodify (#94) - (73ebccc) - Ezekiel Warren
+
 #### Miscellaneous Chores
+
 - **(deps)** update com_grail_bazel_toolchain digest to 42fa12b (#93) - (3a75a1d) - renovate[bot]
 - **(deps)** update com_grail_bazel_toolchain digest to a76d197 (#92) - (15956bb) - renovate[bot]
 - **(deps)** update com_grail_bazel_toolchain digest to 91abcad (#91) - (b36a8b6) - renovate[bot]
