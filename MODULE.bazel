@@ -4,7 +4,7 @@ module(
     compatibility_level = 1,
 )
 
-bazel_dep(name = "nlohmann_json", version = "3.11.2")
+bazel_dep(name = "nlohmann_json", version = "3.11.3")
 bazel_dep(name = "ecsact_runtime", version = "0.5.4")
 bazel_dep(name = "ecsact_parse", version = "0.3.3")
 bazel_dep(name = "magic_enum", version = "0.9.3")
