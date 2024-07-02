@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## 0.1.4 - 2024-07-02
+#### Miscellaneous Chores
+- **(deps)** update dependency ecsact_runtime to v0.6.6 (#120) - (9c919e9) - renovate[bot]
+- update codegen plugin interface (#126) - (839ca29) - Ezekiel Warren
+- sync with ecsact_common (#125) - (7e0f2f1) - seaubot
+- sync with ecsact_common (#124) - (ff6edbb) - seaubot
+- sync with ecsact_common (#123) - (f269a53) - seaubot
+
+- - -
+
 ## 0.1.3 - 2024-06-19
 #### Miscellaneous Chores
 - **(deps)** update hedron_compile_commands digest to 4d56714 (#118) - (2be1358) - renovate[bot]
