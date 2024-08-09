@@ -158,7 +158,7 @@ void ecsact_codegen_plugin(
 	using ecsact::meta::get_transient_ids;
 	using ecsact::meta::package_name;
 
-	ecsact::codegen_plugin_context ctx{package_id, write_fn, report_fn};
+	ecsact::codegen_plugin_context ctx{package_id, 0, write_fn, report_fn};
 	ctx.write("{\n");
 
 	ctx.write(
