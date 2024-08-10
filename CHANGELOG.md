@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## 0.1.5 - 2024-08-10
+#### Miscellaneous Chores
+- **(deps)** update dependency ecsact_cli to v0.3.15 (#130) - (62ddbce) - renovate[bot]
+- **(deps)** update dependency ecsact_cli to v0.3.14 (#129) - (4e2d231) - renovate[bot]
+- **(deps)** update ecsact repositories (#127) - (d1cde20) - renovate[bot]
+- refactor to use new codegen api (#131) - (b873e63) - Ezekiel Warren
+
+- - -
+
 ## 0.1.4 - 2024-07-02
 #### Miscellaneous Chores
 - **(deps)** update dependency ecsact_runtime to v0.6.6 (#120) - (9c919e9) - renovate[bot]
