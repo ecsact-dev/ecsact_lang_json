@@ -5,7 +5,7 @@ module(
 )
 
 bazel_dep(name = "nlohmann_json", version = "3.11.3")
-bazel_dep(name = "ecsact_runtime", version = "0.6.8")
+bazel_dep(name = "ecsact_runtime", version = "0.6.9")
 bazel_dep(name = "ecsact_parse", version = "0.5.1")
 bazel_dep(name = "magic_enum", version = "0.9.3")
 bazel_dep(name = "ecsact_lang_cpp", version = "0.4.6")
