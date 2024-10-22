@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## 0.1.6 - 2024-10-22
+#### Miscellaneous Chores
+- **(deps)** update dependency ecsact_lang_cpp to v0.4.10 (#140) - (0ec6b6e) - renovate[bot]
+- **(deps)** update ecsact repositories (#139) - (8812e2f) - renovate[bot]
+- **(deps)** update dependency ecsact_lang_cpp to v0.4.8 (#138) - (0a50ede) - renovate[bot]
+- **(deps)** update dependency ecsact_codegen to v0.4.2 (#137) - (01d1acd) - renovate[bot]
+- **(deps)** update dependency ecsact_cli to v0.3.17 (#136) - (288fbfa) - renovate[bot]
+- **(deps)** update dependency ecsact_lang_cpp to v0.4.7 (#135) - (d234e6c) - renovate[bot]
+- **(deps)** update dependency ecsact_runtime to v0.6.9 (#134) - (b75734f) - renovate[bot]
+- **(deps)** update dependency ecsact_runtime to v0.6.8 (#132) - (056ca3a) - renovate[bot]
+- sync with ecsact_common (#133) - (aaf5e0d) - seaubot
+
+- - -
+
 ## 0.1.5 - 2024-08-10
 #### Miscellaneous Chores
 - **(deps)** update dependency ecsact_cli to v0.3.15 (#130) - (62ddbce) - renovate[bot]
